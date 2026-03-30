@@ -112,10 +112,18 @@ const initialFormData: FormData = {
 };
 
 const inputClass =
-  "w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900 transition-colors text-[15px]";
+  "w-full bg-white border border-gray-300 rounded px-3 py-2.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm";
 const selectClass =
-  "w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900 transition-colors text-[15px] appearance-none cursor-pointer";
-const labelClass = "block text-[13px] font-medium text-gray-700 mb-1.5";
+  "w-full bg-white border border-gray-300 rounded px-3 py-2.5 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm appearance-none cursor-pointer";
+const labelClass = "block text-sm font-medium text-gray-700 mb-1";
+
+const stepTitles = [
+  "Vehicle info",
+  "Specs & condition",
+  "History & ownership",
+  "Photos",
+  "Price & contact",
+];
 
 function SelectWrapper({ children }: { children: React.ReactNode }) {
   return (
@@ -283,22 +291,27 @@ export default function SubmissionForm() {
   };
 
   return (
-    <div>
-      {/* Progress bar — segmented */}
-      <div className="flex gap-1.5 mb-8">
-        {Array.from({ length: TOTAL_STEPS }, (_, i) => i + 1).map((s) => (
-          <div key={s} className="flex-1 h-1 rounded-full overflow-hidden bg-gray-100">
+    <div className="bg-white border border-gray-200 rounded-lg p-5 md:p-7">
+      {/* Step indicator */}
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <p className="text-xs text-gray-400">Step {step} of {TOTAL_STEPS}</p>
+          <p className="text-sm font-semibold text-gray-900 mt-0.5">{stepTitles[step - 1]}</p>
+        </div>
+        <div className="flex gap-1">
+          {Array.from({ length: TOTAL_STEPS }, (_, i) => i + 1).map((s) => (
             <div
-              className={`h-full rounded-full transition-all duration-500 ease-out bg-gray-900 ${
-                step > s ? "w-full" : step === s ? "w-1/2" : "w-0"
+              key={s}
+              className={`w-2 h-2 rounded-full ${
+                step >= s ? "bg-blue-600" : "bg-gray-200"
               }`}
             />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6 text-sm font-medium">
+        <div className="bg-red-50 border border-red-200 text-red-700 px-3 py-2.5 rounded mb-5 text-sm">
           {error}
         </div>
       )}
@@ -456,8 +469,8 @@ export default function SubmissionForm() {
           {/* Damage-specific fields — shown when accident_damaged */}
           {formData.vehicle_status === "accident_damaged" && (
             <>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 space-y-4">
-                <p className="text-[13px] font-medium text-gray-900">Damage Details</p>
+              <div className="border border-gray-200 rounded p-4 space-y-4">
+                <p className="text-sm font-medium text-gray-900">Damage Details</p>
 
                 <div>
                   <label className={labelClass}>Type of Damage</label>
@@ -483,11 +496,11 @@ export default function SubmissionForm() {
                 <div>
                   <label className={labelClass}>Is the car drivable?</label>
                   <div className="flex gap-3 mt-1">
-                    <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.is_drivable === "yes" ? "border-gray-900 bg-gray-900 text-white" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
+                    <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.is_drivable === "yes" ? "border-blue-600 bg-blue-50 text-blue-700" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
                       <input type="radio" name="is_drivable" value="yes" checked={formData.is_drivable === "yes"} onChange={(e) => updateField("is_drivable", e.target.value)} className="hidden" />
                       Yes
                     </label>
-                    <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.is_drivable === "no" ? "border-gray-900 bg-gray-900 text-white" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
+                    <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.is_drivable === "no" ? "border-blue-600 bg-blue-50 text-blue-700" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
                       <input type="radio" name="is_drivable" value="no" checked={formData.is_drivable === "no"} onChange={(e) => updateField("is_drivable", e.target.value)} className="hidden" />
                       No
                     </label>
@@ -497,11 +510,11 @@ export default function SubmissionForm() {
                 <div>
                   <label className={labelClass}>Does the car have insurance?</label>
                   <div className="flex gap-3 mt-1">
-                    <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.has_insurance === "yes" ? "border-gray-900 bg-gray-900 text-white" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
+                    <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.has_insurance === "yes" ? "border-blue-600 bg-blue-50 text-blue-700" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
                       <input type="radio" name="has_insurance" value="yes" checked={formData.has_insurance === "yes"} onChange={(e) => updateField("has_insurance", e.target.value)} className="hidden" />
                       Yes
                     </label>
-                    <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.has_insurance === "no" ? "border-gray-900 bg-gray-900 text-white" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
+                    <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.has_insurance === "no" ? "border-blue-600 bg-blue-50 text-blue-700" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
                       <input type="radio" name="has_insurance" value="no" checked={formData.has_insurance === "no"} onChange={(e) => updateField("has_insurance", e.target.value)} className="hidden" />
                       No
                     </label>
@@ -522,11 +535,11 @@ export default function SubmissionForm() {
                 <div>
                   <label className={labelClass}>Are you interested in selling for scrap/parts?</label>
                   <div className="flex gap-3 mt-1">
-                    <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.scrap_interest === "yes" ? "border-gray-900 bg-gray-900 text-white" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
+                    <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.scrap_interest === "yes" ? "border-blue-600 bg-blue-50 text-blue-700" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
                       <input type="radio" name="scrap_interest" value="yes" checked={formData.scrap_interest === "yes"} onChange={(e) => updateField("scrap_interest", e.target.value)} className="hidden" />
                       Yes, consider parts/scrap
                     </label>
-                    <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.scrap_interest === "no" ? "border-gray-900 bg-gray-900 text-white" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
+                    <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.scrap_interest === "no" ? "border-blue-600 bg-blue-50 text-blue-700" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
                       <input type="radio" name="scrap_interest" value="no" checked={formData.scrap_interest === "no"} onChange={(e) => updateField("scrap_interest", e.target.value)} className="hidden" />
                       No, full vehicle only
                     </label>
@@ -593,11 +606,11 @@ export default function SubmissionForm() {
           <div>
             <label className={labelClass}>Is the car financed?</label>
             <div className="flex gap-3 mt-1">
-              <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.is_financed === "yes" ? "border-gray-900 bg-gray-900 text-white" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
+              <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.is_financed === "yes" ? "border-blue-600 bg-blue-50 text-blue-700" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
                 <input type="radio" name="is_financed" value="yes" checked={formData.is_financed === "yes"} onChange={(e) => updateField("is_financed", e.target.value)} className="hidden" />
                 Yes
               </label>
-              <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.is_financed === "no" ? "border-gray-900 bg-gray-900 text-white" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
+              <label className={`flex-1 flex items-center justify-center px-4 py-3 rounded-lg border cursor-pointer transition-colors text-sm font-medium ${formData.is_financed === "no" ? "border-blue-600 bg-blue-50 text-blue-700" : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"}`}>
                 <input type="radio" name="is_financed" value="no" checked={formData.is_financed === "no"} onChange={(e) => updateField("is_financed", e.target.value)} className="hidden" />
                 No
               </label>
@@ -608,7 +621,7 @@ export default function SubmissionForm() {
             <div>
               <label className={labelClass}>Settlement Amount (NAD)</label>
               <div className="relative">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                   <span className="text-gray-500 font-medium text-sm">N$</span>
                 </div>
                 <input
@@ -616,7 +629,7 @@ export default function SubmissionForm() {
                   value={formData.settlement_amount}
                   onChange={(e) => updateField("settlement_amount", e.target.value)}
                   placeholder="Outstanding amount owed"
-                  className={`${inputClass} pl-11`}
+                  className={`${inputClass} pl-10`}
                 />
               </div>
             </div>
@@ -641,8 +654,7 @@ export default function SubmissionForm() {
       {step === 4 && (
         <div className="space-y-6">
           <div>
-            <h3 className="text-[15px] font-semibold text-gray-900 mb-1">Vehicle Photos</h3>
-            <p className="text-[13px] text-gray-400 mb-4">Upload at least 3 clear photos of your car</p>
+            <p className="text-sm text-gray-500 mb-4">Upload at least 3 clear photos of your car.</p>
             <PhotoUploader photos={photos} onPhotosChange={setPhotos} />
           </div>
 
@@ -665,18 +677,18 @@ export default function SubmissionForm() {
           <div>
             <label className={labelClass}>Asking Price (NAD)</label>
             <div className="relative">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                <span className="text-gray-500 font-medium text-[15px]">N$</span>
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span className="text-gray-500 font-medium text-sm">N$</span>
               </div>
               <input
                 type="number"
                 value={formData.asking_price}
                 onChange={(e) => updateField("asking_price", e.target.value)}
                 placeholder="e.g. 150000"
-                className={`${inputClass} pl-11 text-lg font-semibold`}
+                className={`${inputClass} pl-10`}
               />
             </div>
-            <p className="mt-1.5 text-[13px] text-gray-400">We may make a different offer after inspection.</p>
+            <p className="mt-1 text-xs text-gray-400">We may make a different offer after inspection.</p>
           </div>
 
           <hr className="border-gray-100" />
@@ -734,16 +746,13 @@ export default function SubmissionForm() {
         </div>
       )}
 
-      {/* Navigation — split left/right like selluscars */}
-      <div className="flex items-center justify-between mt-8">
+      {/* Navigation */}
+      <div className="flex items-center justify-between mt-6 pt-5 border-t border-gray-100">
         {step > 1 ? (
           <button
             onClick={goBack}
-            className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-medium hover:bg-gray-50 hover:border-gray-300 transition-colors text-[14px]"
+            className="text-sm text-gray-500 hover:text-gray-900 font-medium transition-colors"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
             Back
           </button>
         ) : (
@@ -754,7 +763,7 @@ export default function SubmissionForm() {
           <button
             onClick={() => canContinue() && goNext()}
             disabled={!canContinue()}
-            className="px-6 py-2.5 rounded-lg bg-gray-900 hover:bg-gray-800 text-white font-medium disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors text-[14px]"
+            className="px-5 py-2.5 rounded bg-blue-600 hover:bg-blue-700 text-white font-medium disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors text-sm"
           >
             Continue
           </button>
@@ -762,7 +771,7 @@ export default function SubmissionForm() {
           <button
             onClick={handleSubmit}
             disabled={!canContinue() || submitting}
-            className="px-6 py-2.5 rounded-lg bg-gray-900 hover:bg-gray-800 text-white font-medium disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors text-[14px]"
+            className="px-5 py-2.5 rounded bg-blue-600 hover:bg-blue-700 text-white font-medium disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors text-sm"
           >
             {submitting ? "Submitting..." : "Submit Valuation"}
           </button>

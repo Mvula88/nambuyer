@@ -43,8 +43,8 @@ export default function AdminLoginPage() {
       <div className="relative w-full max-w-md mx-4">
         <div className="bg-white rounded-3xl border border-gray-200 p-8 shadow-2xl shadow-gray-200/50">
           <div className="text-center mb-8">
-            <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/20">
-              <span className="text-white font-black text-lg">NB</span>
+            <div className="flex justify-center mb-4">
+              <img src="/logo.png" alt="NamBuyer" className="h-12 w-auto" />
             </div>
             <h1 className="text-2xl font-black text-gray-900">Admin Login</h1>
             <p className="text-sm text-gray-500 mt-1">

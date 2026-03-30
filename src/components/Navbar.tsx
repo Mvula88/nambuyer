@@ -24,17 +24,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 md:h-20">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow">
-                <span className="text-white font-black text-sm tracking-tight">
-                  NB
-                </span>
-              </div>
-              <span className={`text-lg font-bold tracking-tight transition-colors ${
-                scrolled ? "text-gray-900" : "text-white"
-              }`}>
-                Nam<span className="text-blue-400">Buyer</span>
-              </span>
+            <Link href="/" className="flex items-center">
+              <img
+                src="/logo.png"
+                alt="NamBuyer"
+                className={`h-10 md:h-12 w-auto transition-all ${
+                  scrolled ? "brightness-100" : "brightness-0 invert"
+                }`}
+              />
             </Link>
           </div>
 
