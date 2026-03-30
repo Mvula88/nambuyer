@@ -49,12 +49,6 @@ export default function Footer() {
               >
                 Track Submission
               </Link>
-              <Link
-                href="/admin/login"
-                className="block text-gray-400 hover:text-white text-sm transition-colors"
-              >
-                Admin
-              </Link>
             </div>
           </div>
 
