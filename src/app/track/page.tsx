@@ -82,7 +82,7 @@ export default function TrackPage() {
                 value={reference}
                 onChange={(e) => setReference(e.target.value.toUpperCase())}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                placeholder="e.g. BC-2026-12345"
+                placeholder="e.g. NB-2026-12345"
                 className="flex-1 bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 input-modern text-sm uppercase font-mono tracking-wider"
               />
               <button

@@ -40,15 +40,8 @@ export default function AdminSidebar() {
     <aside className="w-64 bg-white text-gray-900 min-h-screen flex flex-col border-r border-gray-200">
       <div className="p-5 border-b border-gray-200">
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-            <span className="text-white font-black text-sm">BC</span>
-          </div>
-          <div>
-            <p className="font-bold text-sm text-gray-900 tracking-tight">
-              Bargain<span className="text-blue-600">Cars</span>
-            </p>
-            <p className="text-[11px] text-gray-400">Admin Panel</p>
-          </div>
+          <img src="/logo.png" alt="NamBuyer" className="h-8 w-auto" />
+          <p className="text-[11px] text-gray-400">Admin Panel</p>
         </div>
       </div>
 
