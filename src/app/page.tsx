@@ -26,14 +26,13 @@ export default function Home() {
             {/* Left content */}
             <div className="max-w-xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
-                Sell your car.
+                We buy cars for cash.
                 <br />
-                <span className="text-blue-400">Get paid today.</span>
+                <span className="text-blue-400">Even damaged ones.</span>
               </h1>
 
               <p className="mt-5 text-base md:text-lg text-gray-300 leading-relaxed max-w-md">
-                Submit your vehicle — used, rebuilt, or accident damaged — get a fair offer within 24 hours, and
-                receive cash the same day you accept.
+                Need money fast? Car been in an accident? We&apos;ll make you an offer and pay you today.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -52,23 +51,26 @@ export default function Home() {
               </div>
 
               <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2">
-                <span className="text-sm text-gray-400">Same-day payment</span>
+                <span className="text-sm text-gray-400">Cash same day</span>
                 <span className="text-gray-600">·</span>
-                <span className="text-sm text-gray-400">Free inspection</span>
+                <span className="text-sm text-gray-400">Fast offer</span>
                 <span className="text-gray-600">·</span>
-                <span className="text-sm text-gray-400">No hidden fees</span>
+                <span className="text-sm text-gray-400">We also buy damaged cars</span>
                 <span className="text-gray-600">·</span>
-                <span className="text-sm text-gray-400">We buy damaged cars too</span>
+                <span className="text-sm text-gray-400">Free to submit</span>
               </div>
             </div>
 
             {/* Right - We Buy Cars blocks */}
             <div className="hidden lg:flex flex-col items-center gap-3 select-none pointer-events-none shrink-0">
               <div className="bg-blue-600 px-8 py-3 rounded-2xl -rotate-3">
-                <span className="text-7xl xl:text-8xl font-black text-white italic">We Buy</span>
+                <span className="text-6xl xl:text-7xl font-black text-white italic">We Buy</span>
               </div>
-              <div className="bg-cyan-400 px-8 py-3 rounded-2xl rotate-2">
-                <span className="text-7xl xl:text-8xl font-black text-white italic">Cars.</span>
+              <div className="bg-blue-600 px-8 py-3 rounded-2xl rotate-2">
+                <span className="text-6xl xl:text-7xl font-black text-white italic">Cars For</span>
+              </div>
+              <div className="bg-cyan-400 px-8 py-3 rounded-2xl -rotate-1">
+                <span className="text-6xl xl:text-7xl font-black text-white italic">Cash.</span>
               </div>
             </div>
           </div>
@@ -80,10 +82,10 @@ export default function Home() {
         <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">
-              Submit your vehicle
+              Tell us about your car
             </h2>
             <p className="mt-2 text-gray-500 text-sm">
-              Fill in your car details and we&apos;ll get back to you within 24 hours.
+              Fill in the details below. We&apos;ll get back to you within 24 hours.
             </p>
           </div>
 
@@ -104,10 +106,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
-              How it works
+              How to sell your car
             </h2>
             <p className="mt-3 text-gray-400 text-lg">
-              Three steps. No dealership visits, no tyre kickers, no waiting weeks.
+              Whether your car was in an accident or you just need cash fast — here&apos;s how it works.
             </p>
           </div>
 
@@ -116,10 +118,10 @@ export default function Home() {
             <div className="bg-gray-950 p-8 md:p-10">
               <span className="text-5xl font-black text-blue-500">1</span>
               <h3 className="text-lg font-bold text-white mt-4 mb-2">
-                Submit your car
+                Send us your car details
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Fill in your car details, upload a few photos, and set your asking price. Takes under 5 minutes.
+                Tell us the make, model, and condition. Upload a few photos.
               </p>
             </div>
 
@@ -127,10 +129,10 @@ export default function Home() {
             <div className="bg-gray-950 p-8 md:p-10">
               <span className="text-5xl font-black text-blue-500">2</span>
               <h3 className="text-lg font-bold text-white mt-4 mb-2">
-                We inspect &amp; value
+                We come and check it
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Our team does a full inspection, diagnostic scan, and test drive at a time that works for you.
+                Our team inspects the car at your location. No cost to you.
               </p>
             </div>
 
@@ -138,10 +140,10 @@ export default function Home() {
             <div className="bg-gray-950 p-8 md:p-10">
               <span className="text-5xl font-black text-blue-500">3</span>
               <h3 className="text-lg font-bold text-white mt-4 mb-2">
-                Get paid same day
+                Get your cash
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Accept our offer and get cash in hand the same day. We handle all the NaTIS paperwork.
+                Accept the offer, we pay you same day.
               </p>
             </div>
           </div>
@@ -202,44 +204,41 @@ export default function Home() {
             {/* Right - Features */}
             <div>
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
-                Why NamBuyer?
+                Why sell to us?
               </h2>
-              <p className="mt-3 text-gray-500 text-lg">
-                We&apos;ve streamlined car selling so you get the best value with zero hassle.
-              </p>
 
               <div className="mt-8 space-y-6">
                 <div>
-                  <h3 className="text-gray-900 font-bold">Instant Payment</h3>
+                  <h3 className="text-gray-900 font-bold">Cash same day</h3>
                   <p className="text-gray-500 text-sm mt-1">
-                    No waiting for bank transfers. Accept our offer and walk away with cash the same day.
+                    Receive cash the same day you accept.
                   </p>
                 </div>
 
                 <div className="border-t border-gray-200" />
 
                 <div>
-                  <h3 className="text-gray-900 font-bold">Fair &amp; Transparent</h3>
+                  <h3 className="text-gray-900 font-bold">We buy damaged cars</h3>
                   <p className="text-gray-500 text-sm mt-1">
-                    Every car is assessed thoroughly. Our offers are based on real market data and vehicle condition.
+                    Accident, not running — we still buy it.
                   </p>
                 </div>
 
                 <div className="border-t border-gray-200" />
 
                 <div>
-                  <h3 className="text-gray-900 font-bold">Zero Paperwork</h3>
+                  <h3 className="text-gray-900 font-bold">No paperwork stress</h3>
                   <p className="text-gray-500 text-sm mt-1">
-                    We handle all NaTIS transfers, deregistration, and documentation. You just sign and go.
+                    We handle NaTIS and everything else.
                   </p>
                 </div>
 
                 <div className="border-t border-gray-200" />
 
                 <div>
-                  <h3 className="text-gray-900 font-bold">Nationwide Coverage</h3>
+                  <h3 className="text-gray-900 font-bold">We come to you</h3>
                   <p className="text-gray-500 text-sm mt-1">
-                    From Windhoek to Walvis Bay, Oshakati to Keetmanshoop — we buy cars across all of Namibia.
+                    Windhoek, Walvis Bay, Oshakati, anywhere.
                   </p>
                 </div>
               </div>
@@ -252,11 +251,10 @@ export default function Home() {
       <section className="py-20 md:py-28 bg-white border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
-            Get your offer in under 24 hours
+            Ready to sell?
           </h2>
           <p className="mt-4 text-gray-500 text-lg max-w-xl mx-auto">
-            Join hundreds of Namibians who chose the fast, fair, and hassle-free
-            way to sell their vehicles.
+            Submit your car details and get an offer within 24 hours.
           </p>
 
           <div className="mt-8">
@@ -264,13 +262,9 @@ export default function Home() {
               href="#submit-form"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-lg font-semibold text-sm transition-colors"
             >
-              Submit Your Car Now
+              Sell Your Car Now
             </a>
           </div>
-
-          <p className="mt-4 text-gray-400 text-sm">
-            Free to submit. No obligations.
-          </p>
         </div>
       </section>
 

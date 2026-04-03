@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NamBuyer - Sell Your Car Fast",
+  title: "NamBuyer - We Buy Cars For Cash",
   description:
-    "Need quick cash? Sell your car to NamBuyer. Fast inspections, fair offers, instant payment.",
+    "Need money fast? Car been in an accident? NamBuyer buys urgent-sale and damaged vehicles across Namibia. Cash same day.",
 };
 
 export default function RootLayout({

@@ -5,7 +5,7 @@ import SubmissionForm from "@/components/SubmissionForm";
 export const metadata = {
   title: "Sell Your Car - NamBuyer",
   description:
-    "Submit your car details and get a fast, fair offer from NamBuyer.",
+    "Need money fast? Submit your car details and get a cash offer from NamBuyer within 24 hours.",
 };
 
 export default function SubmitPage() {

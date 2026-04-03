@@ -14,9 +14,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Namibia&apos;s fastest car buying service. We make selling your
-              vehicle simple, transparent, and rewarding. Get a fair offer and
-              instant payment.
+              We buy urgent-sale vehicles and damaged vehicles across Namibia. Cash in hand, same day.
             </p>
             <div className="flex gap-3 mt-6">
               <a href="https://www.facebook.com/profile.php?id=100063598640071" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition-colors">
