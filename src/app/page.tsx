@@ -64,13 +64,13 @@ export default function Home() {
             {/* Right - We Buy Cars blocks */}
             <div className="hidden lg:flex flex-col items-center gap-3 select-none pointer-events-none shrink-0">
               <div className="bg-blue-600 px-8 py-3 rounded-2xl -rotate-3">
-                <span className="text-6xl xl:text-7xl font-black text-white italic">We Buy</span>
+                <span className="text-6xl xl:text-7xl font-black text-white italic">Urgent Sale?</span>
               </div>
               <div className="bg-blue-600 px-8 py-3 rounded-2xl rotate-2">
-                <span className="text-6xl xl:text-7xl font-black text-white italic">Cars For</span>
+                <span className="text-6xl xl:text-7xl font-black text-white italic">Damaged Car?</span>
               </div>
               <div className="bg-cyan-400 px-8 py-3 rounded-2xl -rotate-1">
-                <span className="text-6xl xl:text-7xl font-black text-white italic">Cash.</span>
+                <span className="text-6xl xl:text-7xl font-black text-white italic">We Buy It.</span>
               </div>
             </div>
           </div>
