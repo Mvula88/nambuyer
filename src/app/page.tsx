@@ -25,7 +25,7 @@ export default function Home() {
           <div className="flex items-center justify-between gap-12">
             {/* Left content */}
             <div className="max-w-xl">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-[1.15] tracking-tight whitespace-nowrap">
                 We buy cars for cash.
                 <br />
                 <span className="text-blue-400">Even damaged ones.</span>
