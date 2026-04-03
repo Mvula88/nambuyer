@@ -62,15 +62,15 @@ export default function Home() {
             </div>
 
             {/* Right - We Buy Cars blocks */}
-            <div className="hidden lg:flex flex-col items-center gap-3 select-none pointer-events-none shrink-0">
-              <div className="bg-blue-600 px-8 py-3 rounded-2xl -rotate-3">
-                <span className="text-6xl xl:text-7xl font-black text-white italic">Urgent Sale?</span>
+            <div className="hidden lg:flex flex-col items-start gap-4 select-none pointer-events-none shrink-0">
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-7 py-3 rounded-lg">
+                <span className="text-5xl xl:text-6xl font-black text-white">Urgent Sale?</span>
               </div>
-              <div className="bg-blue-600 px-8 py-3 rounded-2xl rotate-2">
-                <span className="text-6xl xl:text-7xl font-black text-white italic">Damaged Car?</span>
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-7 py-3 rounded-lg ml-6">
+                <span className="text-5xl xl:text-6xl font-black text-white">Damaged Car?</span>
               </div>
-              <div className="bg-cyan-400 px-8 py-3 rounded-2xl -rotate-1">
-                <span className="text-6xl xl:text-7xl font-black text-white italic">We Buy It.</span>
+              <div className="bg-blue-600 px-7 py-3 rounded-lg">
+                <span className="text-5xl xl:text-6xl font-black text-white">We Buy It.</span>
               </div>
             </div>
           </div>
