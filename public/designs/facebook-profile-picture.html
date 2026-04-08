@@ -16,76 +16,53 @@
     justify-content: center;
     align-items: center;
   }
-  /* Corner accents */
-  .corner-tl {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 120px;
-    height: 120px;
-    border-top: 4px solid #3b82f6;
-    border-left: 4px solid #3b82f6;
-  }
-  .corner-br {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 120px;
-    height: 120px;
-    border-bottom: 4px solid #C5A55A;
-    border-right: 4px solid #C5A55A;
-  }
-  /* Subtle glow */
   .canvas::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%);
   }
-  .logo-mark {
-    width: 140px;
-    height: 140px;
-    background: #3b82f6;
-    border-radius: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 56px;
-    color: #fff;
+  .corner-tl {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100px; height: 100px;
+    border-top: 3px solid #1e3a5f;
+    border-left: 3px solid #1e3a5f;
+  }
+  .corner-br {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 100px; height: 100px;
+    border-bottom: 3px solid #C5A55A;
+    border-right: 3px solid #C5A55A;
+  }
+  .logo-icon {
+    width: 240px;
+    height: auto;
+    margin-bottom: 40px;
     position: relative;
     z-index: 1;
-    margin-bottom: 40px;
   }
   .brand-name {
-    font-size: 72px;
+    font-size: 64px;
     font-weight: 900;
-    color: #fff;
+    color: #1e3a5f;
     letter-spacing: -2px;
     position: relative;
     z-index: 1;
   }
-  .brand-name span { color: #3b82f6; }
+  .brand-name span { color: #C5A55A; }
   .tagline {
-    font-size: 22px;
-    color: rgba(255,255,255,0.35);
+    font-size: 18px;
+    color: rgba(255,255,255,0.3);
     font-weight: 600;
-    margin-top: 16px;
-    letter-spacing: 4px;
+    margin-top: 12px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    position: relative;
-    z-index: 1;
-  }
-  .divider {
-    width: 60px;
-    height: 3px;
-    background: #C5A55A;
-    border-radius: 2px;
-    margin-top: 24px;
     position: relative;
     z-index: 1;
   }
@@ -95,17 +72,15 @@
 <div class="canvas">
   <div class="corner-tl"></div>
   <div class="corner-br"></div>
-  <div class="logo-mark">NB</div>
-  <div class="brand-name">Nam<span>Buyer</span></div>
-  <div class="divider"></div>
-  <div class="tagline">We buy cars for cash</div>
+  <img src="../public/logo.png" class="logo-icon" alt="NamBuyer" style="filter: brightness(0) invert(1);">
+  <div class="tagline">We Buy Cars For Cash</div>
 </div>
 <button onclick="downloadDesign()" style="position:fixed;top:20px;right:20px;background:#3b82f6;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;z-index:999;">Download PNG</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 function downloadDesign(){
   const el = document.querySelector('.canvas');
-  html2canvas(el, {scale:1, backgroundColor:null}).then(c => {
+  html2canvas(el, {scale:1, backgroundColor:null, useCORS:true}).then(c => {
     const a = document.createElement('a');
     a.download = 'nambuyer-facebook-profile.png';
     a.href = c.toDataURL('image/png');
