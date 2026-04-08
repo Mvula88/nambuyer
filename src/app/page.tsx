@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SubmissionForm from "@/components/SubmissionForm";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
@@ -269,6 +270,7 @@ export default function Home() {
       </section>
 
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
