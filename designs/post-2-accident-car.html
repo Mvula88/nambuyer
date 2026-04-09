@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #111; }
+  .canvas {
+    width: 1200px; height: 630px;
+    background: #0a0f1a;
+    position: relative;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    display: flex;
+  }
+  .left {
+    flex: 1;
+    padding: 52px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; z-index: 1;
+  }
+  .right-panel {
+    width: 360px;
+    background: linear-gradient(180deg, #1e3a5f 0%, #0f2440 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+  }
+  .right-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+  }
+  .right-text {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+  }
+  .right-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    color: #C5A55A;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+  h1 span { color: #3b82f6; }
+  .body-text {
+    font-size: 18px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 18px;
+    line-height: 1.5;
+    max-width: 480px;
+  }
+  .cta {
+    display: inline-block;
+    background: #3b82f6;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 13px 32px;
+    border-radius: 8px;
+    margin-top: 24px;
+    width: fit-content;
+  }
+  .bottom-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 360px;
+    padding: 18px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .logo-img { height: 24px; width: auto; filter: brightness(0) invert(1); }
+  .website { font-size: 12px; color: rgba(255,255,255,0.25); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="left">
+    <div class="eyebrow">NamBuyer</div>
+    <h1>Car accident?<br>No insurance?<br><span>Don't stress.</span></h1>
+    <p class="body-text">We buy accident damaged cars — running or not. No need to fix it first. We come to you, check it, and pay you cash.</p>
+    <div class="cta">Submit Your Car — nambuyer.com</div>
+  </div>
+  <div class="right-panel">
+    <div class="right-icon">🚗💥</div>
+    <div class="right-text">We buy it<br>as is.</div>
+    <div class="right-sub">No repairs needed.<br>No insurance needed.<br>Just sell it.</div>
+  </div>
+  <div class="bottom-bar">
+    <img src="/logo.png" class="logo-img" alt="NamBuyer">
+    <div class="website">www.nambuyer.com</div>
+  </div>
+</div>
+<button onclick="downloadDesign()" style="position:fixed;top:20px;right:20px;background:#3b82f6;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;z-index:999;">Download PNG</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+function downloadDesign(){
+  html2canvas(document.querySelector('.canvas'), {scale:1, backgroundColor:null, useCORS:true}).then(c => {
+    const a = document.createElement('a'); a.download = 'nambuyer-post-accident-car.png'; a.href = c.toDataURL('image/png'); a.click();
+  });
+}
+</script>
+</body>
+</html>

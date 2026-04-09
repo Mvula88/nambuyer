@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #111; }
+  .canvas {
+    width: 1200px; height: 630px;
+    background: #0a0f1a;
+    position: relative;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+  .content {
+    position: relative; z-index: 1;
+    padding: 52px 60px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    color: #C5A55A;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: 52px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+  h1 span { color: #3b82f6; }
+  .towns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 32px;
+    max-width: 800px;
+  }
+  .town {
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.2);
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 8px;
+  }
+  .town.highlight {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #fff;
+  }
+  .body-text {
+    font-size: 18px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 28px;
+    line-height: 1.5;
+  }
+  .bottom-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .logo-img { height: 26px; width: auto; filter: brightness(0) invert(1); }
+  .website { font-size: 13px; color: rgba(255,255,255,0.25); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="content">
+    <div class="eyebrow">NamBuyer</div>
+    <h1>We buy cars <span>anywhere</span><br>in Namibia.</h1>
+    <div class="towns">
+      <div class="town highlight">Windhoek</div>
+      <div class="town">Walvis Bay</div>
+      <div class="town">Swakopmund</div>
+      <div class="town highlight">Oshakati</div>
+      <div class="town">Rundu</div>
+      <div class="town">Katima Mulilo</div>
+      <div class="town highlight">Otjiwarongo</div>
+      <div class="town">Gobabis</div>
+      <div class="town">Keetmanshoop</div>
+      <div class="town">Ondangwa</div>
+    </div>
+    <p class="body-text">Wherever you are — we come to you. Cash same day.</p>
+  </div>
+  <div class="bottom-bar">
+    <img src="/logo.png" class="logo-img" alt="NamBuyer">
+    <div class="website">www.nambuyer.com</div>
+  </div>
+</div>
+<button onclick="downloadDesign()" style="position:fixed;top:20px;right:20px;background:#3b82f6;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;z-index:999;">Download PNG</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+function downloadDesign(){
+  html2canvas(document.querySelector('.canvas'), {scale:1, backgroundColor:null, useCORS:true}).then(c => {
+    const a = document.createElement('a'); a.download = 'nambuyer-post-nationwide.png'; a.href = c.toDataURL('image/png'); a.click();
+  });
+}
+</script>
+</body>
+</html>
