@@ -7,96 +7,102 @@
   body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #111; }
   .canvas {
     width: 1080px; height: 1350px;
-    background: linear-gradient(135deg, #0a0f1a 0%, #1e3a5f 100%);
+    background: linear-gradient(170deg, #0a0f1a 0%, #1e3a5f 100%);
     position: relative;
     overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
   }
-  .content {
-    position: relative; z-index: 1;
-    padding: 52px 60px;
-    height: 100%;
+  .top {
+    padding: 64px 72px 0;
+  }
+  .logo-img { height: 48px; width: auto; filter: brightness(0) invert(1); }
+  .middle {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-  .eyebrow {
-    font-size: 13px;
-    font-weight: 700;
-    color: #C5A55A;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
+    padding: 0 72px;
   }
   h1 {
-    font-size: 54px;
+    font-size: 96px;
     font-weight: 900;
     color: #fff;
-    line-height: 1.1;
-    letter-spacing: -1px;
-    max-width: 750px;
+    line-height: 1.05;
+    letter-spacing: -3px;
   }
-  h1 span { color: #22d3ee; }
+  .highlight { color: #C5A55A; }
   .body-text {
-    font-size: 20px;
-    color: rgba(255,255,255,0.45);
-    margin-top: 20px;
-    line-height: 1.5;
-    max-width: 600px;
+    font-size: 36px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 40px;
+    line-height: 1.45;
+    max-width: 850px;
   }
-  .highlights {
-    display: flex;
-    gap: 12px;
-    margin-top: 28px;
+  .divider {
+    width: 100px;
+    height: 4px;
+    background: #C5A55A;
+    border-radius: 2px;
+    margin-top: 48px;
   }
-  .highlight {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 12px 22px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
+  .stat {
+    margin-top: 40px;
   }
-  .highlight .icon { margin-right: 8px; }
-  .bottom-bar {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.06);
+  .stat-number {
+    font-size: 72px;
+    font-weight: 900;
+    color: #3b82f6;
+    line-height: 1;
   }
-  .logo-img { height: 26px; width: auto; filter: brightness(0) invert(1); }
-  .website { font-size: 13px; color: rgba(255,255,255,0.25); font-weight: 600; }
+  .stat-label {
+    font-size: 28px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  .bottom {
+    padding: 0 72px 64px;
+  }
+  .cta {
+    display: inline-block;
+    background: #C5A55A;
+    color: #0a0f1a;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 28px 56px;
+    border-radius: 16px;
+  }
+  .website {
+    font-size: 28px;
+    color: rgba(255,255,255,0.25);
+    font-weight: 600;
+    margin-top: 32px;
+  }
 </style>
 </head>
 <body>
 <div class="canvas">
-  <div class="content">
-    <div class="eyebrow">NamBuyer</div>
-    <h1>Short before<br>month-end?<br><span>Sell your car today.</span></h1>
-    <p class="body-text">Bills piling up? School fees due? Don't borrow money — sell your car to us and get cash in your hand the same day.</p>
-    <div class="highlights">
-      <div class="highlight"><span class="icon">💰</span>Cash same day</div>
-      <div class="highlight"><span class="icon">📋</span>We handle paperwork</div>
-      <div class="highlight"><span class="icon">🚗</span>We come to you</div>
+  <div class="top">
+    <img src="/logo.png" class="logo-img" alt="NamBuyer">
+  </div>
+  <div class="middle">
+    <h1>Short before<br>month-end?<br><span class="highlight">Sell your car.</span></h1>
+    <p class="body-text">Bills piling up? School fees due? Don't borrow — sell your car and get cash in your hand today.</p>
+    <div class="divider"></div>
+    <div class="stat">
+      <div class="stat-number">24hrs</div>
+      <div class="stat-label">From submission to cash in hand</div>
     </div>
   </div>
-  <div class="bottom-bar">
-    <img src="/logo.png" class="logo-img" alt="NamBuyer">
+  <div class="bottom">
+    <div class="cta">Get Your Offer Now</div>
     <div class="website">www.nambuyer.com</div>
   </div>
 </div>
 <button onclick="downloadDesign()" style="position:fixed;top:20px;right:20px;background:#3b82f6;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;z-index:999;">Download PNG</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script>
-function downloadDesign(){
-  html2canvas(document.querySelector('.canvas'), {scale:1, backgroundColor:null, useCORS:true}).then(c => {
-    const a = document.createElement('a'); a.download = 'nambuyer-post-month-end.png'; a.href = c.toDataURL('image/png'); a.click();
-  });
-}
-</script>
+<script>function downloadDesign(){html2canvas(document.querySelector('.canvas'),{scale:1,backgroundColor:null,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='nambuyer-post-month-end.png';a.href=c.toDataURL('image/png');a.click();});}</script>
 </body>
 </html>

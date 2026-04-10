@@ -12,114 +12,90 @@
     overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     display: flex;
+    flex-direction: column;
   }
-  .left {
+  .top {
+    padding: 64px 72px 0;
+  }
+  .logo-img { height: 48px; width: auto; filter: brightness(0) invert(1); }
+  .middle {
     flex: 1;
-    padding: 52px 56px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: relative; z-index: 1;
-  }
-  .right-panel {
-    width: 360px;
-    background: linear-gradient(180deg, #1e3a5f 0%, #0f2440 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px;
-  }
-  .right-icon {
-    font-size: 64px;
-    margin-bottom: 20px;
-  }
-  .right-text {
-    font-size: 22px;
-    font-weight: 800;
-    color: #fff;
-    line-height: 1.3;
-  }
-  .right-sub {
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    margin-top: 12px;
-    line-height: 1.5;
-  }
-  .eyebrow {
-    font-size: 13px;
-    font-weight: 700;
-    color: #C5A55A;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
+    padding: 0 72px;
   }
   h1 {
-    font-size: 48px;
+    font-size: 92px;
     font-weight: 900;
     color: #fff;
-    line-height: 1.1;
-    letter-spacing: -1px;
+    line-height: 1.05;
+    letter-spacing: -3px;
   }
-  h1 span { color: #3b82f6; }
+  .highlight { color: #22d3ee; }
   .body-text {
-    font-size: 18px;
-    color: rgba(255,255,255,0.4);
-    margin-top: 18px;
-    line-height: 1.5;
-    max-width: 480px;
+    font-size: 36px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 40px;
+    line-height: 1.45;
+    max-width: 850px;
+  }
+  .tags {
+    display: flex;
+    gap: 16px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    background: rgba(34,211,238,0.1);
+    border: 2px solid rgba(34,211,238,0.25);
+    color: #22d3ee;
+    font-size: 26px;
+    font-weight: 700;
+    padding: 16px 32px;
+    border-radius: 12px;
+  }
+  .bottom {
+    padding: 0 72px 64px;
   }
   .cta {
     display: inline-block;
     background: #3b82f6;
     color: #fff;
-    font-size: 15px;
-    font-weight: 700;
-    padding: 13px 32px;
-    border-radius: 8px;
-    margin-top: 24px;
-    width: fit-content;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 28px 56px;
+    border-radius: 16px;
   }
-  .bottom-bar {
-    position: absolute;
-    bottom: 0; left: 0; right: 360px;
-    padding: 18px 56px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.06);
+  .website {
+    font-size: 28px;
+    color: rgba(255,255,255,0.25);
+    font-weight: 600;
+    margin-top: 32px;
   }
-  .logo-img { height: 24px; width: auto; filter: brightness(0) invert(1); }
-  .website { font-size: 12px; color: rgba(255,255,255,0.25); font-weight: 600; }
 </style>
 </head>
 <body>
 <div class="canvas">
-  <div class="left">
-    <div class="eyebrow">NamBuyer</div>
-    <h1>Car accident?<br>No insurance?<br><span>Don't stress.</span></h1>
-    <p class="body-text">We buy accident damaged cars — running or not. No need to fix it first. We come to you, check it, and pay you cash.</p>
-    <div class="cta">Submit Your Car — nambuyer.com</div>
-  </div>
-  <div class="right-panel">
-    <div class="right-icon">🚗💥</div>
-    <div class="right-text">We buy it<br>as is.</div>
-    <div class="right-sub">No repairs needed.<br>No insurance needed.<br>Just sell it.</div>
-  </div>
-  <div class="bottom-bar">
+  <div class="top">
     <img src="/logo.png" class="logo-img" alt="NamBuyer">
+  </div>
+  <div class="middle">
+    <h1>Car accident?<br>No insurance?<br><span class="highlight">Don't stress.</span></h1>
+    <p class="body-text">We buy accident damaged cars — running or not. No need to fix it. We come to you and pay cash.</p>
+    <div class="tags">
+      <div class="tag">No repairs needed</div>
+      <div class="tag">No insurance needed</div>
+      <div class="tag">Cash same day</div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="cta">Submit Your Car</div>
     <div class="website">www.nambuyer.com</div>
   </div>
 </div>
 <button onclick="downloadDesign()" style="position:fixed;top:20px;right:20px;background:#3b82f6;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;z-index:999;">Download PNG</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script>
-function downloadDesign(){
-  html2canvas(document.querySelector('.canvas'), {scale:1, backgroundColor:null, useCORS:true}).then(c => {
-    const a = document.createElement('a'); a.download = 'nambuyer-post-accident-car.png'; a.href = c.toDataURL('image/png'); a.click();
-  });
-}
-</script>
+<script>function downloadDesign(){html2canvas(document.querySelector('.canvas'),{scale:1,backgroundColor:null,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='nambuyer-post-accident-car.png';a.href=c.toDataURL('image/png');a.click();});}</script>
 </body>
 </html>

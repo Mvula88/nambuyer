@@ -11,91 +11,73 @@
     position: relative;
     overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
   }
-  .canvas::before {
-    content: '';
-    position: absolute;
-    bottom: 0; right: 0;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+  .top {
+    padding: 64px 72px 0;
   }
-  .content {
-    position: relative; z-index: 1;
-    padding: 52px 60px;
-    height: 100%;
+  .logo-img { height: 48px; width: auto; filter: brightness(0) invert(1); }
+  .middle {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-  .eyebrow {
-    font-size: 13px;
-    font-weight: 700;
-    color: #C5A55A;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
+    padding: 0 72px;
   }
   h1 {
-    font-size: 52px;
+    font-size: 96px;
     font-weight: 900;
     color: #fff;
-    line-height: 1.1;
-    letter-spacing: -1px;
-    max-width: 700px;
+    line-height: 1.05;
+    letter-spacing: -3px;
   }
-  h1 span { color: #3b82f6; }
+  .highlight {
+    color: #3b82f6;
+  }
   .body-text {
-    font-size: 20px;
-    color: rgba(255,255,255,0.45);
-    margin-top: 20px;
-    line-height: 1.5;
-    max-width: 550px;
+    font-size: 36px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 40px;
+    line-height: 1.45;
+    max-width: 850px;
+  }
+  .bottom {
+    padding: 0 72px 64px;
   }
   .cta {
     display: inline-block;
     background: #3b82f6;
     color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 14px 36px;
-    border-radius: 8px;
-    margin-top: 28px;
-    width: fit-content;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 28px 56px;
+    border-radius: 16px;
   }
-  .bottom-bar {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.06);
+  .website {
+    font-size: 28px;
+    color: rgba(255,255,255,0.25);
+    font-weight: 600;
+    margin-top: 32px;
   }
-  .logo-img { height: 26px; width: auto; filter: brightness(0) invert(1); }
-  .website { font-size: 13px; color: rgba(255,255,255,0.25); font-weight: 600; }
 </style>
 </head>
 <body>
 <div class="canvas">
-  <div class="content">
-    <div class="eyebrow">NamBuyer</div>
-    <h1>Got a car standing<br>at home? <span>We'll buy it.</span></h1>
-    <p class="body-text">That car in the yard collecting dust — we'll come check it, make you an offer, and pay you cash same day. No hassle.</p>
-    <div class="cta">Sell Your Car Now — nambuyer.com</div>
-  </div>
-  <div class="bottom-bar">
+  <div class="top">
     <img src="/logo.png" class="logo-img" alt="NamBuyer">
+  </div>
+  <div class="middle">
+    <h1>Got a car<br>standing at<br>home?<br><span class="highlight">We'll buy it.</span></h1>
+    <p class="body-text">That car collecting dust in the yard — we come check it, make you an offer, and pay you cash same day.</p>
+  </div>
+  <div class="bottom">
+    <div class="cta">Sell Your Car Now</div>
     <div class="website">www.nambuyer.com</div>
   </div>
 </div>
 <button onclick="downloadDesign()" style="position:fixed;top:20px;right:20px;background:#3b82f6;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;z-index:999;">Download PNG</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script>
-function downloadDesign(){
-  html2canvas(document.querySelector('.canvas'), {scale:1, backgroundColor:null, useCORS:true}).then(c => {
-    const a = document.createElement('a'); a.download = 'nambuyer-post-unused-car.png'; a.href = c.toDataURL('image/png'); a.click();
-  });
-}
-</script>
+<script>function downloadDesign(){html2canvas(document.querySelector('.canvas'),{scale:1,backgroundColor:null,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='nambuyer-post-unused-car.png';a.href=c.toDataURL('image/png');a.click();});}</script>
 </body>
 </html>

@@ -11,106 +11,106 @@
     position: relative;
     overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
   }
-  .content {
-    position: relative; z-index: 1;
-    padding: 52px 60px;
-    height: 100%;
+  .top {
+    padding: 64px 72px 0;
+  }
+  .logo-img { height: 48px; width: auto; filter: brightness(0) invert(1); }
+  .middle {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  .eyebrow {
-    font-size: 13px;
-    font-weight: 700;
-    color: #C5A55A;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
+    padding: 0 72px;
   }
   h1 {
-    font-size: 52px;
+    font-size: 88px;
     font-weight: 900;
     color: #fff;
-    line-height: 1.1;
-    letter-spacing: -1px;
+    line-height: 1.05;
+    letter-spacing: -3px;
+    text-align: center;
   }
-  h1 span { color: #3b82f6; }
+  .highlight { color: #3b82f6; }
   .towns {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin-top: 32px;
-    max-width: 800px;
+    gap: 14px;
+    margin-top: 56px;
   }
   .town {
-    background: rgba(59,130,246,0.1);
-    border: 1px solid rgba(59,130,246,0.2);
-    color: rgba(255,255,255,0.7);
-    font-size: 15px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
+    font-size: 28px;
     font-weight: 600;
-    padding: 10px 22px;
-    border-radius: 8px;
+    padding: 18px 36px;
+    border-radius: 14px;
   }
-  .town.highlight {
+  .town.active {
     background: #3b82f6;
     border-color: #3b82f6;
     color: #fff;
   }
-  .body-text {
-    font-size: 18px;
-    color: rgba(255,255,255,0.35);
-    margin-top: 28px;
-    line-height: 1.5;
+  .sub {
+    text-align: center;
+    font-size: 32px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 48px;
+    font-weight: 600;
   }
-  .bottom-bar {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.06);
+  .bottom {
+    padding: 0 72px 64px;
+    text-align: center;
   }
-  .logo-img { height: 26px; width: auto; filter: brightness(0) invert(1); }
-  .website { font-size: 13px; color: rgba(255,255,255,0.25); font-weight: 600; }
+  .cta {
+    display: inline-block;
+    background: #3b82f6;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 28px 56px;
+    border-radius: 16px;
+  }
+  .website {
+    font-size: 28px;
+    color: rgba(255,255,255,0.25);
+    font-weight: 600;
+    margin-top: 32px;
+  }
 </style>
 </head>
 <body>
 <div class="canvas">
-  <div class="content">
-    <div class="eyebrow">NamBuyer</div>
-    <h1>We buy cars <span>anywhere</span><br>in Namibia.</h1>
+  <div class="top">
+    <img src="/logo.png" class="logo-img" alt="NamBuyer">
+  </div>
+  <div class="middle">
+    <h1>We buy cars<br><span class="highlight">anywhere</span><br>in Namibia</h1>
     <div class="towns">
-      <div class="town highlight">Windhoek</div>
+      <div class="town active">Windhoek</div>
       <div class="town">Walvis Bay</div>
       <div class="town">Swakopmund</div>
-      <div class="town highlight">Oshakati</div>
+      <div class="town active">Oshakati</div>
       <div class="town">Rundu</div>
       <div class="town">Katima Mulilo</div>
-      <div class="town highlight">Otjiwarongo</div>
+      <div class="town active">Otjiwarongo</div>
       <div class="town">Gobabis</div>
       <div class="town">Keetmanshoop</div>
       <div class="town">Ondangwa</div>
     </div>
-    <p class="body-text">Wherever you are — we come to you. Cash same day.</p>
+    <p class="sub">We come to you. Cash same day.</p>
   </div>
-  <div class="bottom-bar">
-    <img src="/logo.png" class="logo-img" alt="NamBuyer">
+  <div class="bottom">
+    <div class="cta">Sell Your Car Now</div>
     <div class="website">www.nambuyer.com</div>
   </div>
 </div>
 <button onclick="downloadDesign()" style="position:fixed;top:20px;right:20px;background:#3b82f6;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;z-index:999;">Download PNG</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script>
-function downloadDesign(){
-  html2canvas(document.querySelector('.canvas'), {scale:1, backgroundColor:null, useCORS:true}).then(c => {
-    const a = document.createElement('a'); a.download = 'nambuyer-post-nationwide.png'; a.href = c.toDataURL('image/png'); a.click();
-  });
-}
-</script>
+<script>function downloadDesign(){html2canvas(document.querySelector('.canvas'),{scale:1,backgroundColor:null,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='nambuyer-post-nationwide.png';a.href=c.toDataURL('image/png');a.click();});}</script>
 </body>
 </html>

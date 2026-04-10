@@ -11,134 +11,118 @@
     position: relative;
     overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
   }
-  .content {
-    position: relative; z-index: 1;
-    padding: 48px 60px;
-    height: 100%;
+  .top {
+    padding: 64px 72px 0;
+  }
+  .logo-img { height: 48px; width: auto; filter: brightness(0) invert(1); }
+  .header-section {
+    padding: 56px 72px 0;
+  }
+  h1 {
+    font-size: 80px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -2px;
+  }
+  .highlight { color: #3b82f6; }
+  .steps {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-  .eyebrow {
-    font-size: 13px;
-    font-weight: 700;
-    color: #C5A55A;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  h1 {
-    font-size: 46px;
-    font-weight: 900;
-    color: #fff;
-    line-height: 1.1;
-    letter-spacing: -1px;
-    margin-bottom: 36px;
-  }
-  h1 span { color: #3b82f6; }
-  .steps {
-    display: flex;
-    gap: 20px;
+    padding: 0 72px;
+    gap: 0;
   }
   .step {
-    flex: 1;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    padding: 28px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 36px 0;
   }
-  .step-number {
-    font-size: 36px;
+  .step + .step {
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .step-num {
+    font-size: 64px;
     font-weight: 900;
     color: #3b82f6;
-    margin-bottom: 12px;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 80px;
   }
-  .step h3 {
-    font-size: 18px;
+  .step-content h3 {
+    font-size: 36px;
     font-weight: 800;
     color: #fff;
     margin-bottom: 8px;
   }
-  .step p {
-    font-size: 14px;
+  .step-content p {
+    font-size: 26px;
     color: rgba(255,255,255,0.4);
-    line-height: 1.5;
+    line-height: 1.4;
   }
-  .step-arrow {
-    display: flex;
-    align-items: center;
-    color: rgba(255,255,255,0.15);
-    font-size: 24px;
-    padding: 0 4px;
+  .bottom {
+    padding: 0 72px 64px;
   }
-  .bottom-bar {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .logo-img { height: 26px; width: auto; filter: brightness(0) invert(1); }
-  .bottom-right {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  .website { font-size: 13px; color: rgba(255,255,255,0.25); font-weight: 600; }
-  .cta-small {
+  .cta {
+    display: inline-block;
     background: #3b82f6;
     color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 10px 24px;
-    border-radius: 6px;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 28px 56px;
+    border-radius: 16px;
+  }
+  .website {
+    font-size: 28px;
+    color: rgba(255,255,255,0.25);
+    font-weight: 600;
+    margin-top: 32px;
   }
 </style>
 </head>
 <body>
 <div class="canvas">
-  <div class="content">
-    <div class="eyebrow">NamBuyer</div>
-    <h1>How to sell your car<br>in <span>3 easy steps</span></h1>
-    <div class="steps">
-      <div class="step">
-        <div class="step-number">1</div>
+  <div class="top">
+    <img src="/logo.png" class="logo-img" alt="NamBuyer">
+  </div>
+  <div class="header-section">
+    <h1>Sell your car<br>in <span class="highlight">3 easy steps</span></h1>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
         <h3>Send us your details</h3>
         <p>Go to nambuyer.com and fill in your car info. Takes 5 minutes.</p>
       </div>
-      <div class="step-arrow">→</div>
-      <div class="step">
-        <div class="step-number">2</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
         <h3>We come and check it</h3>
         <p>Our team comes to your location. Free inspection, no charge.</p>
       </div>
-      <div class="step-arrow">→</div>
-      <div class="step">
-        <div class="step-number">3</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
         <h3>Get your cash</h3>
         <p>Accept our offer and get paid cash in hand. Same day.</p>
       </div>
     </div>
   </div>
-  <div class="bottom-bar">
-    <img src="/logo.png" class="logo-img" alt="NamBuyer">
-    <div class="bottom-right">
-      <div class="website">www.nambuyer.com</div>
-      <div class="cta-small">Sell Your Car Now</div>
-    </div>
+  <div class="bottom">
+    <div class="cta">Sell Your Car Now</div>
+    <div class="website">www.nambuyer.com</div>
   </div>
 </div>
 <button onclick="downloadDesign()" style="position:fixed;top:20px;right:20px;background:#3b82f6;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;z-index:999;">Download PNG</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script>
-function downloadDesign(){
-  html2canvas(document.querySelector('.canvas'), {scale:1, backgroundColor:null, useCORS:true}).then(c => {
-    const a = document.createElement('a'); a.download = 'nambuyer-post-how-it-works.png'; a.href = c.toDataURL('image/png'); a.click();
-  });
-}
-</script>
+<script>function downloadDesign(){html2canvas(document.querySelector('.canvas'),{scale:1,backgroundColor:null,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='nambuyer-post-how-it-works.png';a.href=c.toDataURL('image/png');a.click();});}</script>
 </body>
 </html>
